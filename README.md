@@ -33,7 +33,7 @@
 -   **Phù Hợp Với Tất Cả Môi Trường:** Bạn không cần phải cài đặt một LIB bất kỳ nào của PHP, nó sử dụng chỉ với DB của bạn, miễn là bạn có quyền truy cập vào database. Phù hợp với tất cả các hệ điều hành như ubuntu, centos ... thậm chí là Xampp trên Windows.
 
 #### 4. CÀI ĐẶT:
-1. **Clone the Repository**
+1. **Clone the Repository** hoặc tải zip về giải nén
 
     git clone https://github.com/HideCM/Auto-Sitemap-Generator-ASG-XML-.git
 2. **Make and chmod 777 folder and files**
