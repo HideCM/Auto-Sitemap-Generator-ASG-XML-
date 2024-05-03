@@ -95,7 +95,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $url_element = $chunk_dom->createElement('url');
 
     // Add child elements
-    $url_element->appendChild($chunk_dom->createElement('loc', htmlspecialchars($base_sitemap . $url, ENT_QUOTES, 'UTF-8'))); // Escape special characters in URL
+    $url_element->appendChild($chunk_dom->createElement('loc', htmlspecialchars($base_sitemap . $curr, ENT_QUOTES, 'UTF-8'))); // Escape special characters in URL
     $url_element->appendChild($chunk_dom->createElement('lastmod', date("Y-m-d")));
     $url_element->appendChild($chunk_dom->createElement('changefreq', $frequency));
     $url_element->appendChild($chunk_dom->createElement('priority', 1));
