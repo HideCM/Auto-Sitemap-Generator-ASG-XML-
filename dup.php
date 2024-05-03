@@ -35,7 +35,7 @@ function filter_duplicate_urls($directory)
             }
 
             // Lưu XML đã chỉnh sửa lại vào tệp
-            $xml->asXML($file);
+            $xml->asXML($file); // Lưu lại tệp XML sau khi đã loại bỏ các URL trùng lặp
         } else {
             echo "Lỗi khi tải tệp XML: $file. Tệp không hợp lệ.<br>";
         }

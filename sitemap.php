@@ -7,9 +7,9 @@ $token = "1";
 
 // Set your MySQL details 
 $servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "dbname";
+$username = "devphim";
+$password = "devphim@123";
+$dbname = "devphim";
 
 // Set your custom table name to generate 
 $table_name  = "mac_vod";
@@ -20,7 +20,10 @@ $column_name_title = "vod_name";
 $column_name_duration = "vod_duration";
 
 // Your site Base URL
-$base_url = "https://domain.com/slug/"; // you can change it like https://domain.com/ or  https://domain.com/folder/ (Need / end of URL)
+$base_url = "https://gaophim.com/chi-tiet-phim/";
+
+// Base URL for sitemap files
+$base_sitemap = "https://gaophim.com/sitemap/";
 
 $frequency = "weekly";
 
@@ -92,7 +95,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $url_element = $chunk_dom->createElement('url');
 
     // Add child elements
-    $url_element->appendChild($chunk_dom->createElement('loc', $url));
+    $url_element->appendChild($chunk_dom->createElement('loc', htmlspecialchars($base_sitemap . $url, ENT_QUOTES, 'UTF-8'))); // Escape special characters in URL
     $url_element->appendChild($chunk_dom->createElement('lastmod', date("Y-m-d")));
     $url_element->appendChild($chunk_dom->createElement('changefreq', $frequency));
     $url_element->appendChild($chunk_dom->createElement('priority', 1));
@@ -122,13 +125,13 @@ if ($latest_100_rows_only) {
 }
 
 // Create sitemap_index.xml file to read small xml files
-create_sitemap_index($count, $urls_per_chunk);
+create_sitemap_index($count, $urls_per_chunk, $base_sitemap);
 
 // Close the DB connection
 mysqli_close($conn);
 
 // Function to create sitemap_index.xml file
-function create_sitemap_index($total_urls, $urls_per_chunk)
+function create_sitemap_index($total_urls, $urls_per_chunk, $base_sitemap)
 {
     $num_chunks = ceil($total_urls / $urls_per_chunk);
     $index_dom = new DomDocument('1.0', 'UTF-8');
@@ -139,7 +142,7 @@ function create_sitemap_index($total_urls, $urls_per_chunk)
 
     for ($i = 1; $i <= $num_chunks; $i++) {
         $sitemap = $index_dom->createElement('sitemap');
-        $loc = $index_dom->createElement('loc', "sitemap_data/sitemap_chunk_$i.xml");
+        $loc = $index_dom->createElement('loc', htmlspecialchars($base_sitemap . "sitemap_data/sitemap_chunk_$i.xml", ENT_QUOTES, 'UTF-8')); // Escape special characters in URL
         $lastmod = $index_dom->createElement('lastmod', date("Y-m-d"));
         $sitemap->appendChild($loc);
         $sitemap->appendChild($lastmod);
