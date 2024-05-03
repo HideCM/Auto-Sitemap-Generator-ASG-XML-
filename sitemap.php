@@ -20,10 +20,10 @@ $column_name_title = "vod_name";
 $column_name_duration = "vod_duration";
 
 // Your site Base URL
-$base_url = "https://gaophim.com/chi-tiet-phim/";
+$base_url = "https://dommain/slug/";
 
 // Base URL for sitemap files
-$base_sitemap = "https://gaophim.com/sitemap/";
+$base_sitemap = "https://domain.com/sitemap-folder/";
 
 $frequency = "weekly";
 
