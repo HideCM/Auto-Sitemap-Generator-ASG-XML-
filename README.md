@@ -52,6 +52,7 @@
 - **$table_name**: Cấu hình table bạn muốn query vào
 - **Line 18-20**: Một số column bạn có thể edit tùy thích
 - **$base_url**: Cấu hình domain của bạn, ví dụ bạn có một site tin tức với format https://domain.com/tin-tuc/tieu-de thì hãy cấu hình https://domain.com/tin-tuc/ để nó nhận biết phân cách giữa các dữ liệu slug
+- **$base_sitemap**: cấu hình path của sitemap folder https://domain.com/sitemap/
 - **$latest_100_rows_only**: Setting để kiểm soát xem có tạo sơ đồ trang web chỉ với 100 hàng mới nhất hay không (true = tạo sơ đồ trang web chỉ với 100 hàng mới nhất, false = tạo sơ đồ trang web đầy đủ). Mục đích sử dụng để khi khởi tạo lần đầu, bạn hãy set nó với giá trị là **false**, script sẽ thực hiện query toàn bộ row có trong table, column. Tiếp đến bạn tạo cronjob và set giá trị là **true** để hằng ngày, giờ, phút sẽ thực hiện nhập những row mới nhất.
 - Replace all **sitemap_chunk_** thành một tên file khác nếu bạn không muốn file tạo thành có chử Chunk
 - 
