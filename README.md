@@ -34,14 +34,16 @@
 
 #### 4. CÀI ĐẶT:
 1. **Clone the Repository** hoặc tải zip về giải nén
-
-    git clone https://github.com/HideCM/Auto-Sitemap-Generator-ASG-XML-.git
+```
+git clone https://github.com/HideCM/Auto-Sitemap-Generator-ASG-XML-.git
+```
 2. **Make and chmod 777 folder and files**
-
+```
     mkdir sitemap (or whatever you want)
-
+```
+```
     sudo chmod -R 777 path/sitemap-folder
-    
+```
 3. **Re-check all permissions can be read and write**
 4. **Access to URL:** https://domain.com/sitemap-folder/sitemap.php?token=**yourtoken** (edit the token line number 6)
 5. Sau khi chạy xong, kết quả sẽ được save và hoàn thành ở URL: https://domain.com/sitemap-folder/sitemap_index.xml. Bạn có thể cung cấp cho google để nhận biết Sitemap của bạn
@@ -55,7 +57,6 @@
 - **$base_sitemap**: cấu hình path của sitemap folder https://domain.com/sitemap/
 - **$latest_100_rows_only**: Setting để kiểm soát xem có tạo sơ đồ trang web chỉ với 100 hàng mới nhất hay không (true = tạo sơ đồ trang web chỉ với 100 hàng mới nhất, false = tạo sơ đồ trang web đầy đủ). Mục đích sử dụng để khi khởi tạo lần đầu, bạn hãy set nó với giá trị là **false**, script sẽ thực hiện query toàn bộ row có trong table, column. Tiếp đến bạn tạo cronjob và set giá trị là **true** để hằng ngày, giờ, phút sẽ thực hiện nhập những row mới nhất.
 - Replace all **sitemap_chunk_** thành một tên file khác nếu bạn không muốn file tạo thành có chử Chunk
-- 
 #### 6. SUPPORT:
 
 > Telegram @kanypham
