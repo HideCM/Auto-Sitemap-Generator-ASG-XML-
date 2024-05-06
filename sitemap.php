@@ -7,9 +7,9 @@ $token = "1";
 
 // Set your MySQL details 
 $servername = "localhost";
-$username = "devphim";
-$password = "devphim@123";
-$dbname = "devphim";
+$username = "username";
+$password = "password";
+$dbname = "dbname";
 
 // Set your custom table name to generate 
 $table_name  = "mac_vod";
