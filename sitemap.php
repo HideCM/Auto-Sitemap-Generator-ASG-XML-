@@ -9,7 +9,7 @@ $token = "1";
 $servername = "localhost";
 $username = "username";
 $password = "password";
-$dbname = "dbname";
+$dbname = "password";
 
 // Set your custom table name to generate 
 $table_name  = "mac_vod";
@@ -20,7 +20,7 @@ $column_name_title = "vod_name";
 $column_name_duration = "vod_duration";
 
 // Your site Base URL
-$base_url = "https://domain.com/slug/";
+$base_url = "https://dommain/slug/";
 
 // Base URL for sitemap files
 $base_sitemap = "https://domain.com/sitemap-folder/";
@@ -82,7 +82,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         // Add xmlns attribute to the root node
         $attr = $chunk_dom->createAttribute('xmlns');
-        $attr->value = 'http://www.sitemaps.org/schemas/sitemap/0.9';
+        $attr->appendChild($chunk_dom->createTextNode('http://www.sitemaps.org/schemas/sitemap/0.9'));
         $chunk_root->appendChild($attr);
     } else {
         // If the chunk file already exists, load the content from that file
@@ -95,7 +95,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $url_element = $chunk_dom->createElement('url');
 
     // Add child elements
-    $url_element->appendChild($chunk_dom->createElement('loc', htmlspecialchars($base_sitemap . $curr, ENT_QUOTES, 'UTF-8'))); // Escape special characters in URL
+    $url_element->appendChild($chunk_dom->createElement('loc', htmlspecialchars($base_sitemap . $url, ENT_QUOTES, 'UTF-8'))); // Escape special characters in URL
     $url_element->appendChild($chunk_dom->createElement('lastmod', date("Y-m-d")));
     $url_element->appendChild($chunk_dom->createElement('changefreq', $frequency));
     $url_element->appendChild($chunk_dom->createElement('priority', 1));
@@ -137,7 +137,7 @@ function create_sitemap_index($total_urls, $urls_per_chunk, $base_sitemap)
     $index_dom = new DomDocument('1.0', 'UTF-8');
     $sitemapindex = $index_dom->appendChild($index_dom->createElement('sitemapindex'));
     $attr = $index_dom->createAttribute('xmlns');
-    $attr->value = 'http://www.sitemaps.org/schemas/sitemap/0.9';
+    $attr->appendChild($index_dom->createTextNode('http://www.sitemaps.org/schemas/sitemap/0.9'));
     $sitemapindex->appendChild($attr);
 
     for ($i = 1; $i <= $num_chunks; $i++) {
